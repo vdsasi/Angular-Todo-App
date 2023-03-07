@@ -1,0 +1,19 @@
+<table>
+    <tr>
+        <td>name</td>
+        <td>email</td>
+        <td>actions</td>
+    </tr>
+    <tr *ngFor="let user of users"> 
+        <td>{{user.name}}</td>
+        <td *ngIf="!editOption">{{user.email}}</td> 
+        <td *ngIf="editOption"><input type = "text" [(ngModel)] = "email" ></td>
+        <button *ngIf ="!editOption" (click) = "UpdateHandler()">Update</button> 
+        <!-- HandleUpdate -->
+        <button *ngIf = "editOption" (click) = "ConfirmHandler(user)">Confirm</button> 
+        <!-- HandleConfirm -->
+        <button (click) = "DeleteHandler(user)">Delete</button>
+        <!-- HandleDelete -->
+
+    </tr>
+</table>

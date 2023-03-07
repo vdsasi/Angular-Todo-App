@@ -1,0 +1,14 @@
+<h1>Todo App</h1>
+
+<input type = "text" [(ngModel)] = "name" />
+<input type = "text" [(ngModel)] = "email" *ngIf = "!editOption"/>
+<input type = "text" *ngIf = "editOption"/>
+
+<button (click) = "HandleAdd()" >Add</button>
+
+
+<br>
+<app-child [editOption]="editOption" [users]="users" (ConfirmEmitter)="HandleConfirm($event)" 
+(DeleteEmitter)="HandleDelete($event)" (UpdateEmitter)="HandleUpdate()"
+></app-child>
+
